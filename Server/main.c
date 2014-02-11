@@ -14,16 +14,18 @@
 #define BUFF_SIZE 256
 #define MAX_USERS 5
 
+#include <stdio.h>
+
 int main(int argc, char *argv[])
 {
-	if (argc != 2)
+	if (argc != 3)
 	{
 		return -1;
 	}
 
-	int portno = atoi(argv[0]);
+	int portno = atoi(argv[1]);
 	char data_dir[30];
-	strcpy(data_dir, argv[1]);
+	strcpy(data_dir, argv[2]);
 
 	int sockfd;
 	socklen_t clilen;
@@ -54,10 +56,12 @@ int main(int argc, char *argv[])
 		{
 			//error in reding;
 		}
+		printf("read:%s\n", buffer);
 //		string request = (string) buffer;
-//		cerr << "readed : |" << request << "|" << endl;
+//		cerr << "read : |" << request << "|" << endl;
 		if (buffer == "")
 		{
+			printf("close!");
 			close(newsockfd);
 			break;
 		}
@@ -69,7 +73,7 @@ int main(int argc, char *argv[])
 		{
 //			result = "[Done]";
 		}
-		n = write(newsockfd,result, result_size);
+//		n = write(newsockfd,result, result_size);
 	}
 
 	close(sockfd);
