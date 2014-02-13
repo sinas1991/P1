@@ -45,6 +45,17 @@ int get_word_from_line(char*line, char*string, int word_number)
 	return 0;
 }
 
+void reverse_string(char* string)
+{
+	int length = strlen(string);
+	for (int i = 0; i < length/2; i++)
+	{
+		char t = string[i];
+		string[i] = string[length-i-1];
+		string[length-i-1] = t;
+	}
+}
+
 /*
 int main()
 {
