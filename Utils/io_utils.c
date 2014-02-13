@@ -7,16 +7,26 @@
 
 int read_int()
 {
+	return fread_int(STD_STREAM);
+}
+
+int fread_int(int fd)
+{
 	char str[100];
-	read_str(str);
+	fread_str(fd, str);
 	return atoi(str);
 }
 
 int read_str(char *str)
 {
+	return fread_str(STD_STREAM, str);
+}
+
+int fread_str(int fd, char* str)
+{
 	for (int i = 0; i < 100; i++)
 	{
-		read(STD_STREAM, &str[i], 1);
+		read(fd, &str[i], 1);
 		if (end_of_string(str[i]))
 		{
 			str[i] = 0;
@@ -28,9 +38,14 @@ int read_str(char *str)
 
 int read_line(char* str)
 {
+	return fread_line(STD_STREAM, str);
+}
+
+int fread_line(int fd, char* str)
+{
 	for (int i = 0; i < 100; i++)
 	{
-		read(STD_STREAM, &str[i], 1);
+		read(fd, &str[i], 1);
 		if (end_of_line(str[i]))
 		{
 			str[i] = 0;
@@ -42,8 +57,13 @@ int read_line(char* str)
 
 float read_float()
 {
+	fread_float(STD_STREAM);
+}
+
+float fread_float(int fd)
+{
 	char str[100];
-	read_str(str);
+	fread_str(fd, str);
 	float result = 0.f;
 	int start = 0;
 	int end = strlen(str);

@@ -20,7 +20,7 @@ $(OBJDIR):
 $(OBJDIR)/%.o: %.c $(DEPS)
 	$(CXX) -c $(LDFLAGS) -o $@ $<
 
-all: $(OBJDIR) Company
+all: $(OBJDIR) $(UTILLIB) Company
 
 Company: $(OBJS) $(UTILLIB)
 	$(CXX) -o $@ $^ $(LDFLAGS) -L$(UTILDIR) $(UTILFLAG)

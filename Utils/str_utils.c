@@ -1,6 +1,8 @@
 
 #include "str_utils.h"
 
+#include <stdio.h>
+
 int strlen(char* str)
 {
 	int len;
@@ -19,6 +21,27 @@ int end_of_line(char c)
 {
 	if (c == 0 || c == '\n')
 		return 1;
+	return 0;
+}
+
+int get_word_from_line(char*line, char*string, int word_number)
+{
+	int start = 0, word = 0;
+	while (word < word_number)
+	{
+		if (end_of_string(line[start]))
+			word++;
+		start++;
+	}
+	for (int i = start; i <= strlen(line); i++)
+	{
+		string[i-start] = line[i];
+		if (end_of_string(string[i-start]))
+		{
+			string[i-start] = 0;
+			break;
+		}
+	}
 	return 0;
 }
 

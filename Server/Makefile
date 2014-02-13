@@ -20,7 +20,7 @@ $(OBJDIR):
 $(OBJDIR)/%.o: %.c $(DEPS)
 	$(CXX) -c $(LDFLAGS) -o $@ $<
 
-all: $(OBJDIR) Server
+all: $(OBJDIR) $(UTILLIB) Server
 
 Server: $(OBJS) $(UTILLIB)
 	$(CXX) -o $@ $^ $(LDFLAGS) -L$(UTILDIR) $(UTILFLAG)

@@ -66,14 +66,14 @@ int main(int argc, char *argv[])
 			break;
 		}
 //		string result = manager->run(request, i);
-		char result[50];
-		int result_size;
+		char result[50] = "Received";
+		int result_size = 8;
 
 		if(result == "")
 		{
 //			result = "[Done]";
 		}
-//		n = write(newsockfd,result, result_size);
+		n = write(newsockfd,result, result_size);
 	}
 
 	close(sockfd);

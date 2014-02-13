@@ -20,7 +20,7 @@ $(OBJDIR):
 $(OBJDIR)/%.o: %.c $(DEPS)
 	$(CXX) -c $(LDFLAGS) -o $@ $<
 
-all: $(OBJDIR) Customer
+all: $(OBJDIR) $(UTILLIB) Customer
 
 Customer: $(OBJS) $(UTILLIB)
 	$(CXX) -o $@ $^ $(LDFLAGS) -L$(UTILDIR) $(UTILFLAG)
