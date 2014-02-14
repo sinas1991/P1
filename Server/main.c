@@ -16,8 +16,14 @@
 
 #include <stdio.h>
 
+#include <timer.h>
+#include <command.h>
+
 int main(int argc, char *argv[])
 {
+	char a[100];
+	get_time(a);
+	printf("%s\n", a);
 	if (argc != 3)
 	{
 		return -1;
@@ -65,15 +71,9 @@ int main(int argc, char *argv[])
 			close(newsockfd);
 			break;
 		}
-//		string result = manager->run(request, i);
 		char result[50] = "Received";
-		int result_size = 8;
-
-		if(result == "")
-		{
-//			result = "[Done]";
-		}
-		n = write(newsockfd,result, result_size);
+		execute_command(buffer, result);
+		n = write(newsockfd,result, strlen(result));
 	}
 
 	close(sockfd);

@@ -56,6 +56,24 @@ void reverse_string(char* string)
 	}
 }
 
+int to_string(char* result, int n)
+{
+	char buffer[100];
+	int i = 0;
+	while(n > 0)
+	{
+		buffer[i] = '0' + n%10;
+		n /= 10;
+		i++;
+	}
+	buffer[i] = 0;
+	reverse_string(buffer);
+	strcpy(result, buffer);
+	if (i == 0)
+		strcpy(result, "0");
+	return 0;
+}
+
 /*
 int main()
 {
