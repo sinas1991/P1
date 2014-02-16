@@ -63,8 +63,6 @@ int main(int argc, char *argv[])
 			//error in reding;
 		}
 		printf("read:%s\n", buffer);
-//		string request = (string) buffer;
-//		cerr << "read : |" << request << "|" << endl;
 		if (buffer == "")
 		{
 			printf("close!");

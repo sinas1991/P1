@@ -8,22 +8,22 @@
 
 int write_int(int _int)
 {
-	return fwrite_int(STD_STREAM, _int);
+	return fwrite_int(STDOUT_STREAM, _int);
 }
 
 int write_str(char* str)
 {
-	return fwrite_str(STD_STREAM, str);
+	return fwrite_str(STDOUT_STREAM, str);
 }
 
 int write_line(char* str)
 {
-	return fwrite_line(STD_STREAM, str);
+	return fwrite_line(STDOUT_STREAM, str);
 }
 
 int write_float(float _float)
 {
-	return fwrite_float(STD_STREAM, _float);
+	return fwrite_float(STDOUT_STREAM, _float);
 }
 
 int fwrite_int(int fd, int n)

@@ -6,9 +6,18 @@
 
 #include <stdio.h>
 
+int is_leap_year(int year)
+{
+	int r = year % 33;
+	if (r==1 || r==5 || r==9 || r==13 || r==17 || r==22 || r==26 || r==30)
+		return 1;
+	return 0;
+}
+
 int get_date(char* result)
 {
 	int second = time(NULL);
+	int days = second / 60 / 60 / 24;
 	strcpy(result, "10/10/1388");
 	return 0;
 }
@@ -16,6 +25,7 @@ int get_date(char* result)
 int get_time(char* result)
 {
 	int second = time(NULL);
+	printf("%d\n", second);
 	second += 3.5 * 60 * 60; // time-zone +3.5
 	int hour = second / 3600;
 	int day = hour / 24;

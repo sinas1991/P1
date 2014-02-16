@@ -1,5 +1,5 @@
 
-#define STD_STREAM 0
+#define STDOUT_STREAM 1
 
 extern int write_int(int);
 extern int write_str(char*);

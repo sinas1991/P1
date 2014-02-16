@@ -72,19 +72,18 @@ int main(int argc, char* argv[])
 
 				read_line(sending_message);
 				printf("2line:%s\n", sending_message);
-				if (!validate_command(sending_message))
-				{
-					printf("Invalid Command");
-					continue;
-				}
-				if (strcmp(command, "disconnect") == 0)
+				if (strcmp(command, "DC") == 0)
 				{
 					close(sockfd);
 					break;
 				}
+				if (!validate_command(sending_message, customer_name))
+				{
+					printf("Invalid Command");
+					continue;
+				}
 
 				n = write(sockfd,sending_message,strlen(sending_message));
-				printf("after write\n");
 				if (n < 0)
 				{
 //					throw ConnectionError("Error in writing message");

@@ -5,7 +5,7 @@
 
 int read_int()
 {
-	return fread_int(STD_STREAM);
+	return fread_int(STDIN_STREAM);
 }
 
 int fread_int(int fd)
@@ -17,7 +17,7 @@ int fread_int(int fd)
 
 int read_str(char *str)
 {
-	return fread_str(STD_STREAM, str);
+	return fread_str(STDIN_STREAM, str);
 }
 
 int fread_str(int fd, char* str)
@@ -36,7 +36,7 @@ int fread_str(int fd, char* str)
 
 int read_line(char* str)
 {
-	return fread_line(STD_STREAM, str);
+	return fread_line(STDIN_STREAM, str);
 }
 
 int fread_line(int fd, char* str)
@@ -55,7 +55,7 @@ int fread_line(int fd, char* str)
 
 float read_float()
 {
-	fread_float(STD_STREAM);
+	fread_float(STDIN_STREAM);
 }
 
 float fread_float(int fd)
